@@ -1,11 +1,12 @@
 require File.join(File.dirname(__FILE__), 'player')
+require File.join(File.dirname(__FILE__), 'treasure_trove')
+require File.join(File.dirname(__FILE__), 'game')
 
 describe Player do
 	before do
 		@initial_health = 150
 		@player = Player.new("larry", @initial_health)
 	end
-
 
 	it "has a capitalized name" do
 		@player.name.should == "Larry"
@@ -16,11 +17,17 @@ describe Player do
 	end
 
 	it "has a string representation" do
-		@player.to_s.should == "I'm Larry with a health of 150 and a score of 155."
+		@player.found_treasure(Treasure.new(:hammer, 50))
+		@player.found_treasure(Treasure.new(:hammer, 50))
+
+		@player.to_s.should == "I'm Larry with health = 150, points = 100, and score = 250."
 	end
 
-	it "computes a score as the sum of its health and length of name" do
-		@player.score.should == (150 + 5)
+	it "computes a score as the sum of its health and points" do
+		@player.found_treasure(Treasure.new(:hammer, 50))
+		@player.found_treasure(Treasure.new(:hammer, 50))
+
+		@player.score.should == (250)
 	end
 
 	it "increases health by 15 when w00ted" do
@@ -67,5 +74,52 @@ describe Player do
 		it "is sorted by decreasing score" do
 			@players.sort.should == [@player3, @player2, @player1]
 		end
+	end
+
+	it "computes as the sum of all treasure points" do
+		@player.points.should == 0
+
+		@player.found_treasure(Treasure.new(:hammer, 50))
+		@player.points.should == 50
+
+		@player.found_treasure(Treasure.new(:crowbar, 400))
+		@player.points.should == 450
+
+		@player.found_treasure(Treasure.new(:hammer, 50))
+		@player.points.should == 500
+	end
+
+	it "assigns a treasure for points during a player's turn" do
+		game = Game.new("Knuckleheads")
+		player = Player.new("moe")
+
+		game.add_player(player)
+
+		game.play(1)
+
+
+		player.points.should_not be_zero
+	end
+
+	it "yields each found treausre and its total points" do
+		@player.found_treasure(Treasure.new(:skillet, 100))
+		@player.found_treasure(Treasure.new(:skillet, 100))
+		@player.found_treasure(Treasure.new(:hammer, 50))
+		@player.found_treasure(Treasure.new(:bottle, 5))
+		@player.found_treasure(Treasure.new(:bottle, 5))
+		@player.found_treasure(Treasure.new(:bottle, 5))
+		@player.found_treasure(Treasure.new(:bottle, 5))
+		@player.found_treasure(Treasure.new(:bottle, 5))
+
+		yielded = []
+		@player.each_found_treasure do |treasure|
+			yielded << treasure
+		end
+
+		yielded.should == [
+			Treasure.new(:skillet, 200), 
+			Treasure.new(:hammer, 50), 
+			Treasure.new(:bottle, 25)
+		]
 	end
 end

@@ -15,6 +15,6 @@ module GameTurn
 		end
 
 		treasure = TreasureTrove.random
-		puts "#{p.name} found a #{treasure.name} worth #{treasure.points} points"
+		p.found_treasure(treasure)
 	end
 end

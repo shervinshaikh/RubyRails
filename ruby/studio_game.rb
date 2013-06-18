@@ -10,6 +10,15 @@ knuckleheads = Game.new("Knuckleheads")
 knuckleheads.add_player(player1)
 knuckleheads.add_player(player2)
 knuckleheads.add_player(player3)
-knuckleheads.play(3)
+
+rounds = 10
+1.upto(rounds) do |round|
+	if block_given?
+		break if yield
+	end
+	knuckleheads.play(10) do
+		knuckleheads.total_points >= 2000
+	end
+end
 
 knuckleheads.print_stats
