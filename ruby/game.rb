@@ -10,7 +10,7 @@ class Game
 		@players = []
 	end
 
-	def load_players(file)
+	def load_players(from_file)
 		# File.readlines(file).each do |line|
 		# 	add_player(Player.from_csv(line))
 		# end
