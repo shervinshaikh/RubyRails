@@ -1,5 +1,6 @@
 require File.join(File.dirname(__FILE__), 'player')
 require File.join(File.dirname(__FILE__), 'die')
+require File.join(File.dirname(__FILE__), 'treasure_trove')
 
 module GameTurn
 	def self.take_turn(p)
@@ -12,5 +13,8 @@ module GameTurn
 		else
 			p.w00t
 		end
+
+		treasure = TreasureTrove.random
+		puts "#{p.name} found a #{treasure.name} worth #{treasure.points} points"
 	end
 end
