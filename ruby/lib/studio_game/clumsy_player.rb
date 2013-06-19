@@ -1,12 +1,14 @@
 require File.join(File.dirname(__FILE__), 'player')
 require File.join(File.dirname(__FILE__), 'treasure_trove')
 
-class ClumsyPlayer < Player
+module StudioGame
+	class ClumsyPlayer < Player
 
-	def found_treasure(treasure)
-		super(Treasure.new(treasure.name, treasure.points/2))
+		def found_treasure(treasure)
+			super(Treasure.new(treasure.name, treasure.points/2))
+		end
+
 	end
-
 end
 
 if __FILE__ == $0
