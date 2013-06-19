@@ -1,7 +1,25 @@
-<h1><%= @movies.size %> Movies<h1>
-
-<ul>
+<h1>Movies<h1>
 <% @movies.each do |movie| %>
-	<li><%= movie %></li>
+<article>
+	<header>
+		<h2><%= movie.title %></h2>
+	</header>
+	<p>
+		<%= movie.description %>
+	</p>
+	<table>
+		<tr>
+			<th>Released:</th>
+			<td><%= movie.released_on %></td>
+		</tr>
+		<tr>
+			<th>Rating:</th>
+			<td><%= movie.rating %></td>
+		</tr>
+		<tr>
+			<th>Total Gross:</th>
+			<td><%= number_to_currency(movie.total_gross) %></td>
+		</tr>
+	</table>
+</article>
 <% end %>
-</ul>
