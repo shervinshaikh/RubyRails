@@ -1,4 +1,8 @@
+require File.join(File.dirname(__FILE__), 'auditable')
+
 class Die
+	include Auditable
+
 	attr_reader :number
 
 	def initialize
@@ -7,6 +11,8 @@ class Die
 
 	def roll
 		@number = rand(6) + 1
+		audit
+		@number
 	end
 end
 
