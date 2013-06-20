@@ -13,6 +13,7 @@ describe "Creating a new movie" do
 		fill_in 'Description', with: "Superheroes saving the world from villians"
 		fill_in 'Rating', with: "PG-13"
 		fill_in 'Total gross', with: "75000000"
+		fill_in 'Image file name', with: "movie.png"
 
 		click_button 'Create Movie'
 

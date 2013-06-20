@@ -23,6 +23,27 @@
 	<p>
 		<%= total_gross(@movie) %>
 	</p>
+	<p>
+		<h3>Cast</h3>
+	</p>
+	<p>
+		<%= @movie.cast %>
+	</p>
+	<p>
+		<h3>Director</h3>
+	</p>
+	<p>
+		<%= @movie.director %>
+	</p>
+	<p>
+		<h3>Duration</h3>
+	</p>
+	<p>
+		<%= @movie.duration %>
+	</p>
+	<p>
+		<%= image_for(@movie) %>
+	</p>
 </article>
 
 <%= link_to "All Movies", movies_path %> |
