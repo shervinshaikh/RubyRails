@@ -1,0 +1,40 @@
+<article id="project" class="project">
+  <header>
+    <%= image_for(@project) %>
+    <h1><%= @project.name %></h1>
+    <h2><%= format_pledging_ends_on(@project) %></h2>
+  </header>
+  <p>
+    <%= @project.description %>
+  </p>
+  <h3>Target Pledge Amount</h3>
+  <p>
+    <%= number_to_currency(@project.target_pledge_amount) %>
+  </p>
+  <h3>Website</h3>
+  <p>
+    <%= link_to @project.website, @project.website %>
+  </p>
+  <h3>Team Members</h3>
+  <p>
+    <%= @project.team_members %>
+  </p>
+  <h3>Total Amount Pledged</h3>
+  <p>
+    <%= number_to_currency(@project.total_amount_pledged) %>
+  </p>
+  <h3>Pledges</h3>
+  <p>
+    <%= link_to pluralize(@project.pledges.size, "pledge"), 
+                project_pledges_path(@project) %>
+  </p>
+  <footer>
+    <%= pledge_link_for(@project) %>
+    <nav>
+      <%= link_to "Edit", edit_project_path(@project), class: 'button' %>
+      <%= link_to "Delete", @project,
+                  class: 'button',
+                  method: :delete, data: { confirm: 'Are you sure?' } %>
+    </nav>
+  </footer>
+</article>

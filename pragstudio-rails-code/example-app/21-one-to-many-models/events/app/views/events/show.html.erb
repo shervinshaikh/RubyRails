@@ -1,0 +1,35 @@
+<article id="event" class="event">
+  <header>
+    <%= image_for(@event) %>
+    <h1><%= @event.name %></h1>
+    <h2><%= @event.starts_at %></h2>
+  </header>
+  
+  <p>
+    <%= @event.description %>
+  </p>
+  
+  <h3>Price</h3>
+  <p>
+    <%= format_price(@event) %>
+  </p>
+  
+  <h3>Location</h3>
+  <p>
+    <%= @event.location %>
+  </p>
+  
+  <h3>Capacity</h3>
+  <p>
+    <%= pluralize(@event.capacity, 'spot') %>
+  </p>
+  
+  <footer>
+    <nav>
+      <%= link_to 'Edit', edit_event_path(@event), class: 'button' %>
+      <%= link_to 'Delete', @event, 
+                  class: 'button',
+                  method: :delete, data: { confirm: 'Are you sure?' } %>
+    </nav>
+  </footer>
+</article>

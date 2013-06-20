@@ -1,0 +1,7 @@
+<h1><%= pluralize(@events.size, 'Event') %></h1>
+
+<ul>
+<% @events.each do |event| %>
+  <li><%= event %></li>
+<% end %>
+</ul>

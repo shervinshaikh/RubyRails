@@ -1,0 +1,25 @@
+<ul id="projects">
+  <% @projects.each do |project| %>
+    <li>
+      <article class="project" id="<%= dom_id(project) %>">
+        <header>
+          <%= image_for(project) %>
+          <h2><%= link_to(project.name, project) %></h2>
+        </header>
+        <p>
+          <%= truncate(project.description, length: 150) %>
+        </p>
+        <table>
+          <tr>
+            <th>Pledging Ends</th>
+            <td><%= format_pledging_ends_on(project) %></td>
+          </tr>
+          <tr>
+            <th>Target Amount</th>
+            <td><%= number_to_currency(project.target_pledge_amount) %></td>
+          </tr>
+        </table>
+      </article>
+    </li>
+  <% end %>
+</ul>

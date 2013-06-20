@@ -1,0 +1,28 @@
+<h1>Events</h1>
+<p>
+  Check out the following <%= pluralize(@events.size, 'event') %>:
+</p>
+<% @events.each do |event| %>
+  <article>
+    <header>
+      <h2><%= event.name %></h2>
+    </header>
+    <p>
+      <%= truncate(event.description, length: 20, separator: ' ') %>
+    </p>
+    <table>
+      <tr>
+        <th>When:</th>
+        <td><%= event.starts_at %></td>
+      </tr>
+      <tr>
+        <th>Where:</th>
+        <td><%= event.location %></td>
+      </tr>
+      <tr>
+        <th>Price:</th>
+        <td><%= format_price(event) %></td>
+      </tr>
+    </table>
+  </article>
+<% end %>

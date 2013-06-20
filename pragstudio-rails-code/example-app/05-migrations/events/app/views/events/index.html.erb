@@ -1,0 +1,28 @@
+<h1>Events</h1>
+<p>
+  Check out the following <%= @events.size %> events:
+</p>
+<% @events.each do |event| %>
+  <article>
+    <header>
+      <h2><%= event.name %></h2>
+    </header>
+    <p>
+      <%= event.description %>
+    </p>
+    <table>
+      <tr>
+        <th>When:</th>
+        <td><%= event.starts_at %></td>
+      </tr>
+      <tr>
+        <th>Where:</th>
+        <td><%= event.location %></td>
+      </tr>
+      <tr>
+        <th>Price:</th>
+        <td><%= number_to_currency(event.price) %></td>
+      </tr>
+    </table>
+  </article>
+<% end %>

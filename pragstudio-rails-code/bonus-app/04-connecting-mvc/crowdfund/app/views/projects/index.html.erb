@@ -1,0 +1,15 @@
+<h1>Projects</h1>
+
+<ul>
+<% @projects.each do |project| %>
+  <li>
+    <p>
+      <strong><%= project.name %></strong>
+      (<%= number_to_currency(project.target_pledge_amount) %>)
+    </p>
+    <p>
+      <%= project.description %>
+    </p>
+  </li>
+<% end %>
+</ul>

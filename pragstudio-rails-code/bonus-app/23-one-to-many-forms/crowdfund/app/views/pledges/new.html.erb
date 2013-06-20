@@ -1,0 +1,32 @@
+<header id="content-header">
+  <h1>New Pledge for <%= link_to @project.name, @project %></h2>
+</header>
+
+<%= form_for([@project, @pledge]) do |f| %>
+  <%= render "shared/errors", object: @pledge %>
+  <fieldset>
+    <ol>
+      <li class="required">
+        <%= f.label :name %>
+        <%= f.text_field :name, size: 40, autofocus: true %>
+      </li>
+      <li class="required">
+        <%= f.label :email %>
+        <%= f.text_field :email, size: 40 %>
+      </li>
+      <li class="required">
+        <%= f.label :amount %>
+        <%= f.select :amount, Pledge::AMOUNT_LEVELS,
+                     prompt: "Pick one" %>
+      </li>
+      <li>
+        <%= f.label :comment %>
+        <%= f.text_area :comment %>
+      </li>
+    </ol>
+    <p>
+      <%= f.submit %>
+      <%= link_to "Cancel", @project, class: 'button' %>
+    </p
+  </fieldset>
+<% end %>

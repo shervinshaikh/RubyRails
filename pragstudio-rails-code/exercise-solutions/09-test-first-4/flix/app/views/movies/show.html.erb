@@ -1,0 +1,21 @@
+<article>
+  <header>
+    <h1><%= @movie.title %></h1>
+  </header>
+  <h2>Description</h2>
+  <p>
+    <%= @movie.description %>
+  </p>
+  <h3>Rating</h3>
+  <p>
+    <%= @movie.rating %>
+  </p>
+  <h3>Released On</h3>
+  <p>
+    <%= @movie.released_on %>
+  </p>
+  <h3>Total Gross</h3>
+  <p>
+    <%= number_to_currency(@movie.total_gross) %>
+  </p>
+</article>

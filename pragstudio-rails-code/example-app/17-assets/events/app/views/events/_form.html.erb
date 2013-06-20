@@ -1,0 +1,35 @@
+<%= form_for(@event) do |f| %>
+<p>
+  <%= f.label :name %><br/>
+  <%= f.text_field :name, autofocus: true %>
+</p>
+<p>
+  <%= f.label :description %><br/>
+  <%= f.text_area :description, cols: 40, rows: 7 %>
+</p>
+<p>
+  <%= f.label :location %><br/>
+  <%= f.text_field :location %>
+</p>
+<p>
+  <%= f.label :price %><br/>
+  <%= f.number_field :price, size: 6 %>
+</p>
+<p>
+  <%= f.label :starts_at %><br/>
+  <%= f.datetime_select :starts_at %>
+</p>
+<p>
+  <%= f.label :image_file_name %><br/>
+  <%= f.text_field :image_file_name, size: 30, 
+         placeholder: "GIF, JPG, or PNG file name" %>
+</p>
+<p>
+  <%= f.label :capacity %><br/>
+  <%= f.number_field :capacity %>
+</p>
+<p>
+  <%= f.submit %> |
+  <%= link_to "Cancel", events_path %>
+</p>
+<% end %>

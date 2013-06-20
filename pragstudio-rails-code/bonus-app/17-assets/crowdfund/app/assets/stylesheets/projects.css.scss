@@ -1,0 +1,13 @@
+// Place all the styles related to the projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "colors";
+
+article.project {
+  img {
+    float: left;
+    margin: 0 15px;
+    border: 3px solid $secondary-color
+  }
+}

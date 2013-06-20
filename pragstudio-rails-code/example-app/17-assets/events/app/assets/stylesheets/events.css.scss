@@ -1,0 +1,9 @@
+@import "colors";
+
+article.event {
+  img {
+    float: left;
+    margin: 0 20px;
+    border: 3px solid $secondary-color;
+  }
+}

@@ -1,0 +1,53 @@
+<article id="event" class="event">
+  <header>
+    <%= image_for(@event) %>
+    <h1><%= @event.name %></h1>
+    <h2><%= @event.starts_at %></h2>
+  </header>
+  
+  <p>
+    <%= @event.description %>
+  </p>
+  
+  <h3>Price</h3>
+  <p>
+    <%= format_price(@event) %>
+  </p>
+  
+  <h3>Location</h3>
+  <p>
+    <%= @event.location %>
+  </p>
+  
+  <h3>Capacity</h3>
+  <p>
+    <%= pluralize(@event.capacity, 'spot') %>
+  </p>
+  
+  <% if @event.registrations.any? %>
+    <h3><%= pluralize(@event.registrations.size, 'Registration') %></h3>
+    <ol class="registrations">
+      <% @event.registrations.each do |registration| %>
+        <li>
+          <%= mail_to(registration.email, registration.name) %>
+          <span class="date"><%= time_ago_in_words(registration.created_at) %> ago</span>
+          (<%= registration.how_heard %>)
+        </li>
+      <% end %>
+    </ol>
+    <p>
+      <%= link_to pluralize(@event.registrations.size, 'registration'), 
+                  event_registrations_path(@event) %>
+    </p>
+  <% end %>
+
+  <footer>
+    <%= register_link_for(@event) %>
+    <nav>
+      <%= link_to 'Edit', edit_event_path(@event), class: 'button' %>
+      <%= link_to 'Delete', @event, 
+                  class: 'button',
+                  method: :delete, data: { confirm: 'Are you sure?' } %>
+    </nav>
+  </footer>
+</article>

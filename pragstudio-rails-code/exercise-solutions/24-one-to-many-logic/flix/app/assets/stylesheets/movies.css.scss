@@ -1,0 +1,220 @@
+
+/*
+ * The Pragmatic Studio
+ * http://pragmaticstudio.com
+ * Copyright (c) 2011 The Pragmatic Studio
+ *
+ * Please don't use this exact layout and style
+ * combination in your applications.
+ */
+
+@import "colors";
+
+/* MOVIES */
+
+article#movie {
+  p {
+    padding: .5em 0;
+    font-size: 1.15em;
+    line-height: 1.25em;
+  }
+
+  h2 {
+    margin: .5em 0;
+    font-size: 115%;
+    color: $secondary-text-color;
+  }
+
+  h3 {
+    padding-bottom: .5em;
+    margin: 1em 0;
+    font-size: 120%;
+    border-bottom: 1px solid $subdued-color;
+
+    &.no-rule {
+      border: none;
+    }
+  }
+
+  img {
+    float: right;
+    margin: 0 0 20px 20px;
+    border: 3px solid $subdued-color;
+  }
+
+  ul.review-stats {
+    font-size: 1.15em;
+  }
+
+  footer {
+    margin: 2em 0;
+    text-align: center;
+
+    nav {
+      margin-top: 2em;
+    }
+  }
+}
+
+ul#movies {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  article.movie {
+    margin-bottom: 1.5em;
+    padding-bottom: 1.5em;
+    border-bottom: 1px dotted $subdued-color;
+
+    &:last-child {
+      border-bottom: none;
+      margin-bottom: 0px;
+    }
+
+    p {
+      margin: .5em 0;
+      font-size: 1.15em;
+      line-height: 1.25em;
+    }
+
+    h2 {
+      font-size: 150%;
+    }
+
+    h3 {
+      margin: .5em 0;
+      font-size: 100%;
+      color: $secondary-text-color;
+    }
+
+    img {
+      float: right;
+      margin: 0 0 0 20px;
+      border: 3px solid $subdued-color;
+    }
+
+    table {
+      margin: 1em 0 0 1em;
+      line-height: 1.5em;
+      font-size: 1.1em;
+
+      th {
+        width: 35%;
+        text-align: right;
+        padding-right: 1em;
+
+        &:after {
+          content: ":"
+        }
+      }
+
+      td {
+        width: 65%;
+      }
+    }
+
+    footer {
+      font-size: 110%;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 1em;
+    }
+  }
+}
+
+/* MOVIE REVIEW BUTTON */
+
+article.movie {
+  a.review {
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: #222 0 0 1px;
+    &:hover {
+      color: #ffc;
+      text-decoration: none;
+    }
+  }
+}
+
+/* REVIEW FORM */
+
+fieldset {
+  .stars {
+    input[type="radio"] {
+      display: inline-block;
+      margin-right: 3px;
+    }
+
+    .star {
+      margin-right: 10px;
+    }
+  }
+}
+
+/* REVIEWS */
+
+ol#reviews {
+  font-size: 1.15em;
+  list-style: none;
+  padding: 0;
+
+  li {
+    margin: 1em 0;
+
+    span {
+      &.review {
+        font-weight: bold;
+      }
+      &.user {
+        font-weight: normal;
+      }
+      &.date {
+        font-size: .9em;
+        font-weight: bold;
+        color: $secondary-text-color;
+      }
+    }
+
+    p {
+      font-size: .95em;
+    }
+  }
+}
+
+/* FLASHES */
+
+.flash {
+  color: $primary-text-color;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  box-shadow: #ffc 0 0 4px;
+  
+  &.notice {
+    background-color: $flash-notice-color;
+  }
+
+  &.alert {
+    background-color: $flash-alert-color;
+  }
+}
+
+/* ERRORS */
+
+section#errors {
+  margin: 1em 0;
+  padding: 1em;
+  background: $errors-background-color;
+
+  h2 {
+    color: $errors-text-color;
+    font-size: 1.25em;
+  }
+
+  h3 {
+    font-size: 1em;
+    margin: .5em 0;
+    font-weight: bold;
+  }
+}

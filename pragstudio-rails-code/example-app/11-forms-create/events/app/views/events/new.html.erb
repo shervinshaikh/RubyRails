@@ -1,0 +1,29 @@
+<header>
+  <h1>Create Event</h1>
+</header>
+
+<%= form_for(@event) do |f| %>
+<p>
+  <%= f.label :name %><br/>
+  <%= f.text_field :name %>
+</p>
+<p>
+  <%= f.label :description %><br/>
+  <%= f.text_area :description, cols: 40, rows: 7 %>
+</p>
+<p>
+  <%= f.label :location %><br/>
+  <%= f.text_field :location %>
+</p>
+<p>
+  <%= f.label :price %><br/>
+  <%= f.number_field :price, size: 6 %>
+</p>
+<p>
+  <%= f.label :starts_at %><br/>
+  <%= f.datetime_select :starts_at %>
+</p>
+<p>
+  <%= f.submit %>
+</p>
+<% end %>

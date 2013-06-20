@@ -1,0 +1,151 @@
+@import "colors";
+
+body {
+  color: $primary-text-color;
+  background-image: image-url("background.jpg");
+  font-family: "Helvetica Neue", Helvetica, Arial;
+}
+
+header#page-header {
+  background-color: $secondary-background-color;
+  padding: 0px 25px;
+
+  h1 a {
+    height: 0px;
+    padding-top: 60px;
+    display: block;
+    font-family: "Esteban", sans-serif;
+    color: #fff;
+    text-decoration: none;
+    overflow: hidden;
+    background: image-url("logo.png") 0 0 no-repeat;
+  }
+
+  a.button {
+    margin-left: 10px;
+    border-color: $subdued-color;
+    &:hover {
+      background-color: #000;
+      color: #fff;
+      border-color: #000;
+      text-decoration: none;
+    }
+  }
+
+  div#masthead {
+    margin: 0 auto;
+    width: 960px;
+    position: relative;
+    text-shadow: #000 0 0 2px;
+
+    h1 {
+      margin: 0;
+      color: #fff;
+      line-height: 60px;
+    }
+
+    nav {
+      margin: 0;
+      position: absolute;
+      color: $subdued-color;
+      top: 0;
+      right: 0;
+      height: 60px;
+      a {
+        color: $secondary-link-color;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+footer#page-footer {
+  color: $secondary-text-color;
+  padding: 20px 25px;
+
+  p {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  a {
+    color: $primary-link-color;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+div#wrapper {
+  background: #fff;
+  padding: 10px;
+  min-height: 400px;
+  overflow: hidden;
+  div#container {
+    width: 960px;
+	  margin: 0 auto;
+    padding: 10px 0;
+    section#content {
+      width: 620px;
+      h1 {
+        margin: 0;
+        padding: 0 0 20px 0;
+      }
+    }
+  }
+}
+
+aside#sidebar {
+  width: 200px;
+  float: right;
+
+  h1 {
+    color: $secondary-text-color;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  a,
+  a:link,
+  a:visited {
+    text-decoration: none;
+  }
+
+  nav {
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        padding: 4px 0;
+        padding-left: 25px;
+
+        &.all-movies a {
+          display: block;
+          background: image-url("arrow.png") no-repeat 10px 8px;
+          padding-left: 35px;
+        }
+
+        &.create-movie a {
+          display: block;
+          background: image-url("add.png") no-repeat 10px 8px;
+          padding-left: 35px;
+        }
+
+        a:hover {
+          background-color: $accent-color;
+          color: #000;
+        }
+
+      }
+    }
+  }
+}

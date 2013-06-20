@@ -1,0 +1,30 @@
+<ul id="events">
+  <% @events.each do |event| %>
+    <li>
+      <article class="event">
+        <header>
+          <%= image_for(event) %>
+          <h2><%= link_to(event.name, event) %></h2>
+          <h3><%= pluralize(event.capacity, 'spot') %></h3>
+        </header>
+        <p>
+          <%= truncate(event.description, length: 150, separator: ' ') %>
+        </p>
+        <table>
+          <tr>
+            <th>When</th>
+            <td><%= event.starts_at %></td>
+          </tr>
+          <tr>
+            <th>Where</th>
+            <td><%= event.location %></td>
+          </tr>
+          <tr>
+            <th>Price</th>
+            <td><%= format_price(event) %></td>
+          </tr>
+        </table>
+      </article>
+    </li>
+  <% end %>
+</ul>
