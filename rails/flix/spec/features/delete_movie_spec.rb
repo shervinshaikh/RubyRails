@@ -11,5 +11,6 @@ describe "Deleting a movie" do
 
 		expect(current_path).to eq(movies_path)
 		expect(page).to_not have_text(movie.title)
+		expect(page).to have_text('Movie sucessfully deleted!')
 	end
 end

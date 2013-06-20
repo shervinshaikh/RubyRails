@@ -11,6 +11,15 @@
 <%= render 'layouts/header' %>
 
 <div id="wrapper">
+	<% if flash[:notice] %>
+		<p id="flash notice">
+			<%= flash[:notice] %>
+		</p>
+	<% elsif flash[:alert] %>
+		<p id="flash alert">
+			<%= flash[:alert] %>
+		</p>
+	<% end %>
 	<div id="container">
 		<section id="sidebar">
 			<%= render 'layouts/sidebar' %>

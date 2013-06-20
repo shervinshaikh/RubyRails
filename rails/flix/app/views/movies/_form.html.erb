@@ -1,4 +1,5 @@
 <%= form_for(@movie) do |f| %>
+  <%= render "shared/errors" %>
   <fieldset>
     <ol>
       <li class="required">
@@ -11,7 +12,7 @@
       </li>
       <li class="required">
         <%= f.label :rating %>
-        <%= f.text_field :rating, size: 4 %>
+        <%= f.select :rating, Movie::RATINGS, prompt: "Pick one" %>
       </li>
       <li class="required">
         <%= f.label :released_on %>
