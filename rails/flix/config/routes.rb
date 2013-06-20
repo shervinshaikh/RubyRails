@@ -1,4 +1,6 @@
 Flix::Application.routes.draw do
+  resources :reviews
+
   root "movies#index"
   # get "movies" => "movies#index"
   # get "movies/:id" => "movies#show", as: "movie"
