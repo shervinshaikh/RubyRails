@@ -14,10 +14,24 @@ class MoviesController < ApplicationController
 
 	def update
 		@movie = Movie.find(params[:id])
-		movie_params = params.require(:movie).permit(:title, :description, :rating, :released_on, :total_gross)
-		# .permit! if all are updatable without listing them
 		@movie.update(movie_params)
 		redirect_to @movie
 	end
 
+	def new
+		@movie = Movie.new
+	end
+
+	def create
+		@movie = Movie.new(movie_params)
+		@movie.save
+		redirect_to @movie
+	end
+
+	private
+
+		def movie_params
+			params.require(:movie).permit(:title, :description, :rating, :released_on, :total_gross)
+			# .permit! if all are updatable without listing them
+		end
 end
