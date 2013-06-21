@@ -58,3 +58,7 @@ end
 group :test do
 	gem "capybara"
 end
+
+# Paerclip and Amazon AWS for uploading images
+gem 'paperclip'
+gem 'aws-sdk'

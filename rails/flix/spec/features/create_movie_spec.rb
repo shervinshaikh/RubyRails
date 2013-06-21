@@ -13,7 +13,7 @@ describe "Creating a new movie" do
 		fill_in 'Description', with: "Superheroes saving the world from villians"
 		select "PG-13", :from => "movie_rating"
 		fill_in 'Total gross', with: "75000000"
-		fill_in 'Image file name', with: "movie.png"
+		attach_file "Image", "#{Rails.root}/app/assets/images/ironman.jpg"
 		fill_in 'Cast', with: "The award-winning cast"
 		fill_in 'Director', with: "The ever-creative director"
 		fill_in 'Duration', with: "123 min"

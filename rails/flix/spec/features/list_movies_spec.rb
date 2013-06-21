@@ -11,7 +11,7 @@ describe "Viewing the list of movies" do
 	                          cast: "Robert Downey Jr., Gwyneth Paltrow and Terrence Howard",
 	                          director: "Jon Favreau",
 	                          duration: "126 min",
-	                          image_file_name: "ironman.jpg")
+	                          image: open("#{Rails.root}/app/assets/images/ironman.jpg"))
 
 	    movie2 = Movie.create(title: "Superman",
 	                          rating: "PG",
@@ -21,7 +21,7 @@ describe "Viewing the list of movies" do
 	                          cast: "Christopher Reeve, Margot Kidder and Gene Hackman",
 	                          director: "Richard Donner",
 	                          duration: "143 min",
-	                          image_file_name: "superman.jpg")
+	                          image: open("#{Rails.root}/app/assets/images/superman.jpg"))
 
 	    movie3 = Movie.create(title: "Spider-Man",
 	                          rating: "PG-13",
@@ -31,7 +31,7 @@ describe "Viewing the list of movies" do
 	                          cast: "Tobey Maguire, Kirsten Dunst and Willem Dafoe",
 	                          director: "Sam Raimi",
 	                          duration: "121 min",
-	                          image_file_name: "spiderman.jpg")
+	                          image: open("#{Rails.root}/app/assets/images/spiderman.jpg"))
 
 		visit movies_url
 
@@ -46,7 +46,7 @@ describe "Viewing the list of movies" do
 		expect(page).to have_text(movie1.released_on.year)
 		expect(page).to have_text(movie1.cast)
 		expect(page).to have_text(movie1.duration)
-		expect(page).to have_selector("img[src$='#{movie1.image_file_name}']")
+		expect(page).to have_selector("img[src$='#{movie1.image.url}']")
 	end
 
 	it "does not show movies that has not been released" do

@@ -27,8 +27,11 @@
         <%= f.text_field :duration, size: 10 %>
       </li>
       <li class="required">
-        <%= f.label :image_file_name %>
-        <%= f.text_field :image_file_name %>
+        <%= f.label :image %>
+        <%= f.file_field :image %>
+      </li>
+      <li>
+        <%= image_for(@movie) %>
       </li>
       <li>
         <%= f.label :cast %>

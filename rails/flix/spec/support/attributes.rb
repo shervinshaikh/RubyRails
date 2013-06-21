@@ -8,7 +8,7 @@ def movie_attributes(overrides = {})
 		cast: "Robert Downey Jr., Gwyneth Paltrow and Terrence Howard",
 		director: "Jon Favreau",
 		duration: "126 min",
-		image_file_name: "ironman.jpg"
+		image: open("#{Rails.root}/app/assets/images/ironman.jpg")
 	}.merge(overrides)
 end
 
